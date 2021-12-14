@@ -1,6 +1,9 @@
 <template>
     <div class="second">
         <v-container class="py-3">
+            <div class="text-center mt-3">
+                <span class="style_for_main_title">Останні новини</span>
+            </div>
             <div v-for="i in news" :key="i.index" class="my-5">
                 <v-col class="pa-3">
                     <v-card @click="goToDetails(i)">
@@ -46,8 +49,20 @@ export default {
     }
 
     .style_for_title {
-        background-color: #8a2be299 !important;
+        background-color: #252775bd !important;
         color: white;
         font-size: 1.2rem;
+    }
+
+    .style_for_btn {
+        background-color: #252775bd !important;
+        color: white;
+    }
+
+    .style_for_main_title {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: #252775;
+        border-bottom: 1px double;
     }
 </style>

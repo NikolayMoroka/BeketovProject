@@ -2,8 +2,6 @@
   <div style="">
     <First/>
     <Second/>
-    <Soon/>
-    <News/>
   </div>
 </template>
 
