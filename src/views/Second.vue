@@ -4,8 +4,8 @@
             <div class="text-center mt-3">
                 <span class="style_for_main_title">Останні новини</span>
             </div>
-            <div v-for="i in news" :key="i.index" class="my-5">
-                <v-col class="pa-3">
+            <div class="my-6 d-flex flex-wrap">
+                <v-col v-for="i in news" :key="i.index" cols="12" sm="6" class="pa-3">
                     <v-card @click="goToDetails(i)">
                         <v-img :src="getImg(i.img)" class="style_img_for_news_mobile align-end">
                             <v-card-title class="style_for_title">{{ i.title }}</v-card-title>

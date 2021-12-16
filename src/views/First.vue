@@ -1,66 +1,71 @@
 <template>
     <div class="first">
         <v-container>
-            <v-row class="mb-n4">
+            <v-row class="mb-n4" v-if="$vuetify.breakpoint.xs">
                 <v-col cols="12" class="pb-0 px-0">
-                    <v-card class="card d-flex align-end" @click="goToDetails()">
+                    <v-card class="hidden-md-and-down card d-flex align-end">
                         <div class="text-center big_item">
                            <img style="width: 100%; height: 175px; margin-bottom: -8px;" :src="getImg(slides[0].img)" alt="">
                         </div>
                         <div class="gradient">
-                             <div class="text-center" style="margin-top: 17%">
-                               <span class="style_for_main_title">КАФЕДРА ЕЛЕКТРИЧНОГО ТРАНСУПОРТ</span>
+                             <div class="d-flex align-center justify-center text-center" style="height: 100%;">
+                               <span class="style_for_main_title">КАФЕДРА ЕЛЕКТРИЧНОГО ТРАНСУПОРТУ</span>
                             </div>
                         </div>
                     </v-card>
                 </v-col>
             </v-row>
+            <v-row class="mt-n1" v-if="$vuetify.breakpoint.smAndUp">
+                <v-col cols="12" class="pb-0 px-0">
+                    <Carousel/>
+                </v-col>
+            </v-row>
             
             <v-row class="d-flex">
                 <v-col cols="6" md="3" class="pa-0">
-                    <v-card height="100" :class="{'card_primary_for_big': $vuetify.breakpoint.mdAndUp}" class="card_primary d-flex align-center">
+                    <v-card height="100" :class="{'card_primary_for_big': $vuetify.breakpoint.mdAndUp}" class="card_primary d-flex align-center justify-center">
                         <div class="text-center d-flex px-5">
-                            <v-icon large color="white">
+                            <v-icon large color="white" class="mr-2">
                                 mdi-account
                             </v-icon>
-                            <div>
-                                Викладачі кафедри
+                            <div class="d-flex align-center">
+                               <span>Cклад кафедри</span> 
                             </div>
                         </div>
                     </v-card>
                 </v-col>
                 <v-col cols="6" md="3" class="pa-0">
-                    <v-card height="100" :class="{'card_white_for_big': $vuetify.breakpoint.mdAndUp}" class="card_white d-flex align-center">
+                    <v-card height="100" :class="{'card_white_for_big': $vuetify.breakpoint.mdAndUp}" class="card_white d-flex align-center justify-center">
                         <div class="text-center d-flex px-5">
-                            <v-icon large color="white">
+                            <v-icon large color="white" class="mr-2">
                                 mdi-check
                             </v-icon>
-                            <div>
-                                Наші досягнення
+                            <div class="d-flex align-center">
+                               <span>Наші досягнення</span> 
                             </div>
                         </div>
                     </v-card>
                 </v-col>
                  <v-col cols="6" md="3" class="pa-0">
-                    <v-card height="100" :class="{'card_primary_for_big': $vuetify.breakpoint.mdAndUp}" class="card_white d-flex align-center">
+                    <v-card height="100" :class="{'card_primary_for_big': $vuetify.breakpoint.mdAndUp}" class="card_white d-flex align-center justify-center">
                        <div class="text-center d-flex px-5">
-                            <v-icon large color="white">
+                            <v-icon large color="white" class="mr-2">
                                 mdi-brain
                             </v-icon>
-                            <div>
-                                Наша наукова робота
+                            <div  class="d-flex align-center">
+                               <span>Наукова робота</span> 
                             </div>
                         </div>
                     </v-card>
                 </v-col>
                  <v-col cols="6" md="3" class="pa-0">
-                    <v-card height="100" class="card_primary d-flex align-center" :class="{'card_white_for_big': $vuetify.breakpoint.mdAndUp}">
+                    <v-card height="100" class="card_primary d-flex align-center justify-center" :class="{'card_white_for_big': $vuetify.breakpoint.mdAndUp}">
                         <div class="text-center d-flex px-5">
-                            <v-icon large color="white">
+                            <v-icon large color="white" class="mr-2">
                                 mdi-account-multiple-plus-outline
                             </v-icon>
-                            <div>
-                                Цікаве абітурієнту
+                            <div class="d-flex align-center">
+                               <span>Цікаве абітурієнту</span> 
                             </div>
                         </div>
                     </v-card>
@@ -71,7 +76,11 @@
 </template>
 
 <script>
+import Carousel from "./Elements/Carousel.vue"
 export default {
+    components: {
+        Carousel
+    },
     data:() => ({
          slides: [
             {
